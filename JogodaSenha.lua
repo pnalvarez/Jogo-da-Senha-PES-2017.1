@@ -36,28 +36,26 @@ end
 
 tentativa = 1
 
-user = {}
 senha = {1,2,3,4}
 
-user[1] = io.read()
-user[2] = io.read()
-user[3] = io.read()
-user[4] = io.read()
-
+io.write("insira 4 numeros".." "..tostring(tentativa).." tentativa\n")
+user = {io.read("*n"),io.read("*n"),io.read("*n"),io.read("*n")}
+io.write("\n")
 io.write(obtemDica(comparaSequencias(senha,user)))
+io.write("\n")
 
---[[while (tentativa <= 10 and comparaSequencias(senha,user).pretas ~= 4) do
+while (tentativa <= 9 and comparaSequencias(senha,user).pretas ~= 4) do
 
-          user[1] = io.read()
- 	      user[2] = io.read()
-          user[3] = io.read()
-	      user[4] = io.read()
+		  io.write("insira 4 numeros".." "..tostring(tentativa).." tentativa\n")
+          user = {io.read("*n"),io.read("*n"),io.read("*n"),io.read("*n")}
+          io.write("\n")
+          io.write(obtemDica(comparaSequencias(senha,user)))
+          io.write("\n")
 
-          
-           io.write(obtemDica(comparaSequencias(senha,user)))
+          tentativa = tentativa+1
 end
 
-if (tentativa < 10) then io.write("acertou") else io.write("tempo esgotado") end--]]
+if (tentativa < 10) then io.write("acertou") else io.write("tempo esgotado") end
 
        
 
