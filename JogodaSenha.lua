@@ -1,3 +1,8 @@
+adivinhacao = {}
+senha = {}
+querJogar = {quer = false}
+
+math.randomseed(os.time())
 
 function comparaSequencias(s1,s2)
  
@@ -34,30 +39,91 @@ function obtemDica(pretaseBrancas)
       return str
 end
 
-tentativa = 1
+function PerguntaSeQuerJogar(querJogar)
 
-senha = {1,2,3,4}
+io.write("Digite sim se quiser jogar ou outra coisa se nao quiser\n")
 
-io.write("insira 4 numeros".." "..tostring(tentativa).." tentativa\n")
-user = {io.read("*n"),io.read("*n"),io.read("*n"),io.read("*n")}
-io.write("\n")
-io.write(obtemDica(comparaSequencias(senha,user)))
-io.write("\n")
+imput = io.read("*l")
 
-while (tentativa <= 9 and comparaSequencias(senha,user).pretas ~= 4) do
+if(imput == "sim") then
 
-		  io.write("insira 4 numeros".." "..tostring(tentativa).." tentativa\n")
+	querJogar.quer = true
+else 
+	querJogar.quer = false
+  end
+end
+
+function geraSenha(user)
+
+user[1] = math.random(1,6)
+
+while(user[2] == user[1] or user[2] == nil) do 
+
+	user[2] = math.random(1,6) end
+
+while(user[3] == user[1] or user[3] == user[2] or user[3] == nil) do
+	user[3] = math.random(1,6)
+end
+
+while(user[4] == user[1] or user[4] == user[2] or user[4] == user[3] or user[4] == nil) do
+	user[4] = math.random(1,6)
+ end
+
+end
+
+function JogadorAdivinhar(tentativa)
+
+      io.write("insira 4 numeros".." "..tostring(tentativa).." tentativa\n")
           user = {io.read("*n"),io.read("*n"),io.read("*n"),io.read("*n")}
           io.write("\n")
-          io.write(obtemDica(comparaSequencias(senha,user)))
+end
+
+function InformarDica()
+ io.write(obtemDica(comparaSequencias(senha,user)))
           io.write("\n")
+      end
+
+ function ImprimeSequencia(seq)
+
+ 	for i = 1,4 do
+ 		io.write(tostring(seq[i]).." ")
+ 	end
+ 	io.write("\n")
+ end
+
+PerguntaSeQuerJogar(querJogar)
+
+while(querJogar.quer) do
+
+local tentativa = 1
+
+geraSenha(senha)
+
+ JogadorAdivinhar(tentativa)
+		  InformarDica()
+
+tentativa = tentativa + 1
+
+while (tentativa <= 9 and comparaSequencias(senha,adivinhacao).pretas ~= 4) do
+
+		  JogadorAdivinhar(tentativa)
+		  InformarDica()
 
           tentativa = tentativa+1
 end
 
-if (tentativa < 10) then io.write("acertou") else io.write("tempo esgotado") end
+if (tentativa < 10) then
+ io.write("acertou") 
 
-       
+  else 
+  	io.write("tempo esgotado\n")
+
+    ImprimeSequencia(senha)
+    end
+
+PerguntaSeQuerJogar(querJogar)
+  end
+
 
       
   
