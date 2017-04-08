@@ -4,16 +4,16 @@ querJogar = {quer = false}
 
 math.randomseed(os.time())
 
-function comparaSequencias(s1,s2)
+function comparaSequencias(sequencia1,sequencia2)
  
    pretas = 0
    brancas = 0
 
-    for k1,v1 in pairs(s1) do
-     for k2,v2 in pairs(s2) do
+    for posicao1,valor1 in pairs(sequencia1) do
+     for posicao2,valor2 in pairs(sequencia2) do
 
-       if(v1 == v2) then
-    	if(k1 == k2) then
+       if(valor1 == valor2) then
+    	if(posicao1 == posicao2) then
 	    pretas = pretas + 1
           else
             brancas = brancas + 1
@@ -30,13 +30,13 @@ end
 
 function obtemDica(pretaseBrancas)
 
-     str = " "
+     dica = " "
 
-     for i = 1,pretaseBrancas.pretas do str = str.."p " end
-     for j = 1,pretaseBrancas.brancas do str = str.."b " end
-     for k = 1,(4-(pretaseBrancas.pretas+pretaseBrancas.brancas)) do str = str..". " end
+     for i = 1,pretaseBrancas.pretas do dica = dica.."p " end
+     for j = 1,pretaseBrancas.brancas do dica = dica.."b " end
+     for k = 1,(4-(pretaseBrancas.pretas+pretaseBrancas.brancas)) do dica = dica..". " end
 
-      return str
+      return dica
 end
 
 function PerguntaSeQuerJogar(querJogar)
