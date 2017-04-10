@@ -17,7 +17,8 @@
           |--JogadorAdivinhar(tentativa)
           |--InformarDica()
           |--ImprimeSequencia(seq)
-         
+          |--revelarSenha()
+          
 3 regra) A aplicacao pode ser dividida em 5 partes: inicializaçāo(declaracāo das variaveis tipo tabela e "setar" o gerador de números)
 pseudo-aleatórios para o tempo), modularizaçāo(programar as funções primárias a serem utilizadas na aplicaçāo), começo do jogo(gerar 
 a senha a ser adivinhada, imprimir mensagem para o jogador no começo da partida e inicializar a tentativa para a primeira), sequencia de tentativas
