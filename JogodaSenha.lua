@@ -1,8 +1,13 @@
+
+--[[Table structures]]--
+
 adivinhacao = {}
 senha = {}
 querJogar = {quer = false}
 
 math.randomseed(os.time())
+
+--[[Functions]]--
 
 function comparaSequencias(sequencia1,sequencia2)
  
@@ -53,20 +58,20 @@ else
   end
 end
 
-function geraSenha(user)
+function geraSenha(senha)
 
-user[1] = math.random(1,6)
+senha[1] = math.random(1,7)
 
-while(user[2] == user[1] or user[2] == nil) do 
+while(senha[2] == senha[1] or senha[2] == nil) do 
 
-	user[2] = math.random(1,6) end
+	senha[2] = math.random(1,7) end
 
-while(user[3] == user[1] or user[3] == user[2] or user[3] == nil) do
-	user[3] = math.random(1,6)
+while(senha[3] == senha[1] or senha[3] == senha[2] or senha[3] == nil) do
+	senha[3] = math.random(1,7)
 end
 
-while(user[4] == user[1] or user[4] == user[2] or user[4] == user[3] or user[4] == nil) do
-	user[4] = math.random(1,6)
+while(senha[4] == senha[1] or senha[4] == senha[2] or senha[4] == senha[3] or senha[4] == nil) do
+	senha[4] = math.random(1,7)
  end
 
 end
@@ -75,6 +80,7 @@ function JogadorAdivinhar(tentativa)
 
       io.write("insira 4 numeros".." "..tostring(tentativa).." tentativa\n")
           user = {io.read("*n"),io.read("*n"),io.read("*n"),io.read("*n")}
+          adivinhacao = user
           io.write("\n")
 end
 
@@ -91,6 +97,13 @@ function InformarDica()
  	io.write("\n")
  end
 
+ function revelarSenha()
+
+ 	ImprimeSequencia(senha)
+ end
+
+--[[Beginning match]]--
+
 PerguntaSeQuerJogar(querJogar)
 
 while(querJogar.quer) do
@@ -99,12 +112,14 @@ local tentativa = 1
 
 geraSenha(senha)
 
+--[[The player tries]]--
+
  JogadorAdivinhar(tentativa)
 		  InformarDica()
 
 tentativa = tentativa + 1
 
-while (tentativa <= 9 and comparaSequencias(senha,adivinhacao).pretas ~= 4) do
+while (tentativa <= 9 and comparaSequencias(senha,adivinhacao).pretas < 4) do
 
 		  JogadorAdivinhar(tentativa)
 		  InformarDica()
@@ -112,17 +127,21 @@ while (tentativa <= 9 and comparaSequencias(senha,adivinhacao).pretas ~= 4) do
           tentativa = tentativa+1
 end
 
+--[[Match results]]--
+
 if (tentativa < 10) then
  io.write("acertou") 
 
   else 
   	io.write("tempo esgotado\n")
 
-    ImprimeSequencia(senha)
+    revelarSenha()
     end
 
 PerguntaSeQuerJogar(querJogar)
   end
+
+
 
 
       
