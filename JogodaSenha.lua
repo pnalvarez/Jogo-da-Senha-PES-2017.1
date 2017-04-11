@@ -9,8 +9,8 @@ math.randomseed(os.time())
 
 --[[Functions]]--
 
---[[comparaSequencias: Funçāo que recebe duas sequencias de 4 valores entre 1 e 7 nao repetidos e retorna o numero de valores certos na posicao certa e valores certos na posicao errada--]]
---[[ Pre-condicoes: sequencia1 e sequencia2 existem e correspondem a sequencias de 4 valores entre 1 e 7 nao repetidos--]]
+--[[comparaSequencias: Funçāo que recebe duas sequencias de 4 valores entre 1 e 8 nao repetidos e retorna o numero de valores certos na posicao certa e valores certos na posicao errada--]]
+--[[ Pre-condicoes: sequencia1 e sequencia2 existem e correspondem a sequencias de 4 valores entre 1 e 8 nao repetidos--]]
 --[[Pos-condicoes: É retornado exatamente as quantidades de valores certos no lugar certo(peças pretas) e valores certos no lugar errado(peças brancas) --]]
 function comparaSequencias(sequencia1,sequencia2)
  
@@ -50,23 +50,23 @@ function obtemDica(pretaseBrancas)
       return dica
 end
 
---[[geraSenha: Funcao que recebe uma tabela vazia e a preenche com uma senha de 4 numeros entre 1,7 gerados pseudo-aleatoriamente sem repetir a ser adivinhada pelo jogador--]]
+--[[geraSenha: Funcao que recebe uma tabela vazia e a preenche com uma senha de 4 numeros entre 1,8 gerados pseudo-aleatoriamente sem repetir a ser adivinhada pelo jogador--]]
 --[[Pre-condicoes: a tabela senha existe e esta vazia--]]
---[[Pos-condicoes:  A tabela senha esta preenchida com 4 valores nao repetidos entre 1 e 7--]]
+--[[Pos-condicoes:  A tabela senha esta preenchida com 4 valores nao repetidos entre 1 e 8--]]
 function geraSenha(senha)
 
-senha[1] = math.random(1,7)
+senha[1] = math.random(1,8)
 
 while(senha[2] == senha[1] or senha[2] == nil) do 
 
-	senha[2] = math.random(1,7) end
+	senha[2] = math.random(1,8) end
 
 while(senha[3] == senha[1] or senha[3] == senha[2] or senha[3] == nil) do
-	senha[3] = math.random(1,7)
+	senha[3] = math.random(1,8)
 end
 
 while(senha[4] == senha[1] or senha[4] == senha[2] or senha[4] == senha[3] or senha[4] == nil) do
-	senha[4] = math.random(1,7)
+	senha[4] = math.random(1,8)
  end
 
 end
@@ -76,7 +76,7 @@ end
 --[[Pos-condicoes: Uma sequencia correspondente aos numeros dados pelo jogador foi criada --]]
 function JogadorAdivinhar(tentativa)
 
-      io.write("insira 4 numeros no intervalo entre 1 e 7 sem repetir\nOBS:Insira um unico numero por linha\n\n".." "..tostring(tentativa).." tentativa\n")
+      io.write("insira 4 numeros no intervalo entre 1 e 8 sem repetir\nOBS:Insira um unico numero por linha\n\n".." "..tostring(tentativa).." tentativa\n")
           user = {io.read("*n"),io.read("*n"),io.read("*n"),io.read("*n")}
           adivinhacao = user
           io.write("\n")
@@ -94,7 +94,7 @@ function InformarDica()
       end
 
 --[[ImprimeSequencia: Funcao que recebe uma tabela correspondente a uma sequencia e a imprime na tela--]]
---[[Pre-condicoes: Sequencia é uma tabela com exatamente 4 valores entre 1 e 7 nao repetidos--]]
+--[[Pre-condicoes: Sequencia é uma tabela com exatamente 4 valores entre 1 e 8 nao repetidos--]]
 --[[Pos-condicoes: Os valores da sequencia foram impressos na tela--]]
  function ImprimeSequencia(sequencia)
 
@@ -105,7 +105,7 @@ function InformarDica()
  end
 
 --[[revelarSenha: Funcao que imprime a sequencia correspondente a senha--]]
---[[Pre-condicoes: Valem as assertivas de entrada e saida da ImprimeSequencia e senha é uma tabela valida com 4 valores nao repetidos entre 1 e 7--]]
+--[[Pre-condicoes: Valem as assertivas de entrada e saida da ImprimeSequencia e senha é uma tabela valida com 4 valores nao repetidos entre 1 e 8--]]
 --[[Pos-condicoes: A senha foi revelada na tela--]]
  function revelarSenha()
 
