@@ -4,21 +4,14 @@
         Autoria: Pedro Alvarez
         Dia: 10/04/2017
         Versāo: 2.0
-        Indicador de conteúdo: 125 linhas de código
+        Indicador de conteúdo: 148 linhas de código
         Descriçāo: Jogo simples que a cada partida gera-se uma sequência de 4 numeros aleatórios entre 1 e 7 e o jogador tem ate
  10 tentativas para acertar, sendo que a cada tentativa a aplicacao fornce uma dica para ele, que consiste numa sequencia de
  caracteres em que cada "p"(preto) significa que há um valor certo na posiçāo certa na sequencia, e a cada "b"(branco) significa
  um valor certo na posiçāo errada. 
  
-  2 regra) |---ComparaSequencias(s1,s2)
-          |---obtemDica(pretaseBrancas)
-          |-- PerguntaSeQuerJogar(querJogar)
-          |--geraSenha(user)
-          |--JogadorAdivinhar(tentativa)
-          |--InformarDica()
-          |--ImprimeSequencia(seq)
-          |--revelarSenha()
-          
+  2 regra) O diagrama das funcoes encontra-se em pdf em anexo à aplicacao
+          
 3 regra) A aplicacao pode ser dividida em 5 partes: inicializaçāo(declaracāo das variaveis tipo tabela e "setar" o gerador de números)
 pseudo-aleatórios para o tempo), modularizaçāo(programar as funções primárias a serem utilizadas na aplicaçāo), começo do jogo(gerar 
 a senha a ser adivinhada, imprimir mensagem para o jogador no começo da partida e inicializar a tentativa para a primeira), sequencia de tentativas
