@@ -5,7 +5,7 @@
         Dia: 10/04/2017
         Versāo: 2.0
         Indicador de conteúdo: 148 linhas de código
-        Descriçāo: Jogo simples que a cada partida gera-se uma sequência de 4 numeros aleatórios entre 1 e 7 e o jogador tem ate
+        Descriçāo: Jogo simples que a cada partida gera-se uma sequência de 4 numeros aleatórios entre 1 e 8 e o jogador tem ate
  10 tentativas para acertar, sendo que a cada tentativa a aplicacao fornce uma dica para ele, que consiste numa sequencia de
  caracteres em que cada "p"(preto) significa que há um valor certo na posiçāo certa na sequencia, e a cada "b"(branco) significa
  um valor certo na posiçāo errada. 
